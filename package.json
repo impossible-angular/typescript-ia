@@ -1,0 +1,24 @@
+{
+  "name": "typescript-ia",
+  "version": "1.0.0",
+  "description": "Advanced TypeScript examples.",
+  "scripts": {
+    "update-array": "node --experimental-strip-types src/update-array.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/impossible-angular/typescript-ia.git"
+  },
+  "keywords": [],
+  "author": "Sergii Lutchyn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/impossible-angular/typescript-ia/issues"
+  },
+  "homepage": "https://github.com/impossible-angular/typescript-ia#readme",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "typescript": "^5.9.3"
+  }
+}

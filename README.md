@@ -1,2 +1,23 @@
-# typescript-ia
-Advanced TypeScript examples.
+## TypeScript/JavaScript examples
+
+- [Update array object](#update-array-object)
+
+### Update array object
+
+[**Source file:** update-array.ts](src/update-array.ts)
+
+All this function used to update one object in array by `id` in different way and test performance.
+All input parameters remain mutable.
+
+You can ensure immutability by using:
+- Object.freeze() (for a shallow freeze)
+- structuredClone() (to create a deep copy)
+
+Using next methods:
+- filter
+- map
+- for & push
+- slice & concat
+- slice & destruction(...) 
+  - by `findIndex` method
+  - by `[key: value]` index
