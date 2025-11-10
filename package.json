@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Advanced TypeScript examples.",
   "scripts": {
-    "update-array": "node --experimental-strip-types src/update-array.ts"
+    "update-array-test": "node src/update-array-test.ts"
   },
   "repository": {
     "type": "git",
