@@ -1,37 +1,25 @@
-import { performancePercent } from './shared.ts'
+import {consoleSpeed, generateArray, type Item, performancePercent, runTest} from './shared.ts'
 import {
     updateArrayById_filter,
     updateArrayById_map,
-    updateArrayByIdFindIndex, updateArrayByIdFindIndex_splice,
-    updateArrayByObjId_for, updateArrayByObjId_reduce,
+    updateArrayByIdFindIndex,
+    updateArrayByIdFindIndex_splice,
+    updateArrayByObjId_for,
+    updateArrayByObjId_reduce,
     updateArrayObjByIndexSliceConcat,
     updateArrayObjByIndexSliceDest
 } from './update-array.ts'
 
 
 /**
- * Test performance of array functions
+ * Test performance of update array functions
  */
 
 const ARRAY_SIZE = 100000
 const ARRAY_STEP = 20
 const RUN_TIMES = ARRAY_SIZE / ARRAY_STEP
 
-type Item = {
-    id: number | string
-    name: string
-    items: Array<Item>
-}
-
 type IndexKey = { [key: string | number]: number }
-
-const generateArray = (count: number): Item[] => {
-    const result = []
-    for (let i = 0; i < count; i++) {
-        result.push({id: 'id-' + i, name: i.toString(), items: [{id: i, name: i.toString(), items: []}]} as Item)
-    }
-    return result
-}
 
 const generateIndexMap = (arr: Item[]): IndexKey => {
     let perfTime = performance.now()
@@ -42,24 +30,6 @@ const generateIndexMap = (arr: Item[]): IndexKey => {
     perfTime = performance.now() - perfTime
     consoleSpeed('create [key: value]:index one time................ ', perfTime)
     return indexMap
-}
-
-const newObj = (index: number): Item => {
-    return {id: 'id-' + index, name: 'A'.repeat(index), items: []} as Item
-}
-
-const consoleSpeed = (str: string, speed: number) => {
-    // console.warn(str, Math.round(speed * 100) / 100, 'ms')
-    console.warn(str, speed.toFixed(2), 'ms')
-}
-
-const runTest = (fn: any, arraySize: number, arrayStep: number) => {
-    let timePerf = performance.now()
-    for (let i = 0; i < arraySize; i += arrayStep) {
-        fn(newObj(i))
-    }
-    timePerf = performance.now() - timePerf
-    return timePerf
 }
 
 export const updateArrayTest = async () => {
